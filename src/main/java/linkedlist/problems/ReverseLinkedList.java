@@ -8,68 +8,87 @@ public class ReverseLinkedList {
     LinkedNode prev = null;
     public LinkedNode populateLinkedList()
     {
-        LinkedNode head = new LinkedNode(4);
-        LinkedNode five = new LinkedNode(5);
-        LinkedNode eight = new LinkedNode(8);
-        LinkedNode two = new LinkedNode(2);
-
-        head.next = five;
-        five.next = eight;
-        two.next = two;
-
-
-        return head;
-    }
-
-    public LinkedNode populateLinkedListWithDuplicates()
-    {
         LinkedNode head = new LinkedNode(1);
-        LinkedNode five = new LinkedNode(1);
-        LinkedNode eight = new LinkedNode(1);
         LinkedNode two = new LinkedNode(2);
+        LinkedNode three = new LinkedNode(3);
+        LinkedNode four = new LinkedNode(4);
 
-        head.next = five;
-        five.next = eight;
-        two.next = two;
+        head.next = two;
+        two.next = three;
+        three.next = four;
 
 
         return head;
     }
 
+//    public LinkedNode reverseLL(LinkedNode list)
+//    {
+//        while(list.next!=null)
+//        {
+//            LinkedNode nextNode = list.next;
+//            list.next=prev;
+//            prev = list;
+//            list = nextNode;
+//            //System.out.println(list.data);
+//        }
+//        return list;
+//    }
 
-    public LinkedNode reverseLL(LinkedNode list)
+
+    public LinkedNode reverseLL2(LinkedNode head)
     {
-        while(list.next!=null)
+        LinkedNode prev = null;
+
+        while(head.next!=null)
         {
-            LinkedNode nextNode = list.next;
-            list.next=prev;
-            prev = list;
-            list = nextNode;
-            //System.out.println(list.data);
+
+            LinkedNode nextNode = head.next;
+            head.next=prev;
+            //prev = nextNode;
+            prev = head;
+            head = nextNode;
+
         }
-        return list;
+        /*
+        The question as to why is the return value prev and not head?
+        Head is on the original LL with head.next pointing to the right.  We condition the prev to make prev.next to
+        go left.  All the reverse LL logic is in the prev node.  The head Node is only the old LL.  Therefore, we need to return
+        prev.  Now, if we make it return head, head.next = null;  That means we will miss out on the last node in the LL.
+         */
+
+        /*
+        The below 2 lines alone prove the head.next is being defined to go back.  then defining prev = head is moving the
+        prev pointer from n-1 to n and n here is head.
+
+        Also, another way to look at it is prev is a new LL like how head was the old LL and we define the backwards
+        movement on the prev Node because the head node is rightward movement.
+         */
+
+        head.next=prev;
+        prev=head;
+
+        head=prev;  //--> If I want to use head still
+        prev=null;  // To save space
+        return head;
     }
+
 
 
     public static void main(String[] args) {
         ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
-        LinkedNode head = reverseLinkedList.populateLinkedList();
+        LinkedNode newNode = reverseLinkedList.populateLinkedList();
 
-
-        while(head.next!=null)
-        {
-            System.out.println("inside populate LL: "+head.data);
-            head=head.next;
-        }
-
-        LinkedNode reversed = reverseLinkedList.reverseLL(head);
+        LinkedNode reversed = reverseLinkedList.reverseLL2(newNode);
 
         while(reversed.next!=null)
         {
-
-            reversed = reversed.next;
-            System.out.println("reverse: "+reversed);
+            System.out.println(reversed.data);
+            reversed=reversed.next;
         }
+
+        System.out.println(reversed.data);
+
+
     }
 
 }
