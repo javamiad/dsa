@@ -21,6 +21,22 @@ public class ReverseLinkedList {
         return head;
     }
 
+    public LinkedNode populateLinkedListWithDuplicates()
+    {
+        LinkedNode head = new LinkedNode(1);
+        LinkedNode five = new LinkedNode(1);
+        LinkedNode eight = new LinkedNode(1);
+        LinkedNode two = new LinkedNode(2);
+
+        head.next = five;
+        five.next = eight;
+        two.next = two;
+
+
+        return head;
+    }
+
+
     public LinkedNode reverseLL(LinkedNode list)
     {
         while(list.next!=null)
