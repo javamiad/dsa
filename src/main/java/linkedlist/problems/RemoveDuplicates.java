@@ -1,17 +1,17 @@
 package linkedlist.problems;
 
-import linkedlist.theory.LinkedNode;
+import linkedlist.theory.ListNode;
 
 public class RemoveDuplicates {
 
 
-    public LinkedNode deleteDuplicates(LinkedNode head) {
-        LinkedNode temp = head;
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode temp = head;
 
         while(head!=null && head.next!=null )
         {
 
-            if (head.data == head.next.data)
+            if (head.val == head.next.val)
             {
 
                 head.next = head.next.next;
@@ -35,14 +35,14 @@ public class RemoveDuplicates {
         ReverseLinkedList r = new ReverseLinkedList();
 
         RemoveDuplicates removeDuplicates = new RemoveDuplicates();
-        LinkedNode node = removeDuplicates.deleteDuplicates( r.populateLinkedListWithDuplicates());
+        ListNode node = removeDuplicates.deleteDuplicates(r.populateLinkedList() );
 
-        System.out.println(node.data);
+        System.out.println(node.val);
         while(node.next!=null)
         {
 
             node=node.next;
-            System.out.println(node.data);
+            System.out.println(node.val);
 
         }
 

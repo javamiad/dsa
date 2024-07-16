@@ -1,20 +1,20 @@
 package linkedlist.theory.singlyLL;
 
-import linkedlist.theory.LinkedNode;
+import linkedlist.theory.ListNode;
 
 public class Operations {
 
-    public LinkedNode prepend(LinkedNode one)
+    public ListNode prepend(ListNode one)
     {
-        LinkedNode zero = new LinkedNode(0);
+        ListNode zero = new ListNode(0);
         zero.next=one;
         return zero;
     }
 
-    public LinkedNode insertLinkedNodeInList(int target, LinkedNode ll, int num)
+    public ListNode insertLinkedNodeInList(int target, ListNode ll, int num)
     {
         int iter = 0;
-        LinkedNode newNode = new LinkedNode(num);
+        ListNode newNode = new ListNode(num);
         while(ll.next!=null)
         {
             iter++;
@@ -35,11 +35,11 @@ public class Operations {
 
 
 
-    public LinkedNode removeNode(int value, LinkedNode head)
+    public ListNode removeNode(int value, ListNode head)
     {
         while(head.next!=null)
         {
-            if(head.next.data == value)
+            if(head.next.val == value)
             {
                 head.next = head.next.next;
                 return head;
@@ -52,10 +52,10 @@ public class Operations {
 
     public static void main(String[] args) {
         Operations ops = new Operations();
-        LinkedNode one = new LinkedNode(1);
-        LinkedNode two = new LinkedNode(2);
-        LinkedNode three = new LinkedNode(3);
-        LinkedNode four = new LinkedNode(4);
+        ListNode one = new ListNode(1);
+        ListNode two = new ListNode(2);
+        ListNode three = new ListNode(3);
+        ListNode four = new ListNode(4);
 
         one.next=two;
         two.next=three;
@@ -80,12 +80,12 @@ public class Operations {
         ops.insertLinkedNodeInList(2,one, 8);
 
         ops.removeNode(3,one);
-        System.out.println(one.data);
+        System.out.println(one.val);
 
         while(one.next!=null)
         {
             one = one.next;
-            System.out.println(one.data);
+            System.out.println(one.val);
         }
 
 

@@ -1,17 +1,16 @@
 package linkedlist.problems;
 
-import linkedlist.theory.LinkedNode;
-import linkedlist.theory.PracticeBasics1;
+import linkedlist.theory.ListNode;
 
 public class ReverseLinkedList {
 
-    LinkedNode prev = null;
-    public LinkedNode populateLinkedList()
+    ListNode prev = null;
+    public ListNode populateLinkedList()
     {
-        LinkedNode head = new LinkedNode(1);
-        LinkedNode two = new LinkedNode(2);
-        LinkedNode three = new LinkedNode(3);
-        LinkedNode four = new LinkedNode(4);
+        ListNode head = new ListNode(1);
+        ListNode two = new ListNode(2);
+        ListNode three = new ListNode(3);
+        ListNode four = new ListNode(4);
 
         head.next = two;
         two.next = three;
@@ -35,14 +34,14 @@ public class ReverseLinkedList {
 //    }
 
 
-    public LinkedNode reverseLL2(LinkedNode head)
+    public ListNode reverseLL2(ListNode head)
     {
-        LinkedNode prev = null;
+        ListNode prev = null;
 
         while(head.next!=null)
         {
 
-            LinkedNode nextNode = head.next;
+            ListNode nextNode = head.next;
             head.next=prev;
             //prev = nextNode;
             prev = head;
@@ -76,17 +75,17 @@ public class ReverseLinkedList {
 
     public static void main(String[] args) {
         ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
-        LinkedNode newNode = reverseLinkedList.populateLinkedList();
+        ListNode newNode = reverseLinkedList.populateLinkedList();
 
-        LinkedNode reversed = reverseLinkedList.reverseLL2(newNode);
+        ListNode reversed = reverseLinkedList.reverseLL2(newNode);
 
         while(reversed.next!=null)
         {
-            System.out.println(reversed.data);
+            System.out.println(reversed.val);
             reversed=reversed.next;
         }
 
-        System.out.println(reversed.data);
+        System.out.println(reversed.val);
 
 
     }

@@ -1,17 +1,17 @@
 package linkedlist.problems;
 
-import linkedlist.theory.LinkedNode;
+import linkedlist.theory.ListNode;
 
 public class Merge2SortedList {
 
     //https://leetcode.com/problems/merge-two-sorted-lists/
 
 
-    public LinkedNode mergeTwoLists(LinkedNode list1, LinkedNode list2) {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
 
-        LinkedNode head = list1;
-        LinkedNode temp = null;
+        ListNode head = list1;
+        ListNode temp = null;
 
         if(list1==null || list2==null)
         {
@@ -19,7 +19,7 @@ public class Merge2SortedList {
         }
         while(list1.next!=null)
         {
-            if(list1.data<list2.data || list1.data==list2.data )
+            if(list1.val<list2.val || list1.val==list2.val )
             {
                 // temp = list2.next;
                 head.next=list2;
@@ -42,11 +42,11 @@ public class Merge2SortedList {
 
     }
 
-    public LinkedNode getLinkedNode1()
+    public ListNode getLinkedNode1()
     {
-        LinkedNode one = new LinkedNode(1);
-        LinkedNode two = new LinkedNode(2);
-        LinkedNode four = new LinkedNode(4);
+        ListNode one = new ListNode(1);
+        ListNode two = new ListNode(2);
+        ListNode four = new ListNode(4);
 
         one.next=two;
         two.next=four;
@@ -54,11 +54,11 @@ public class Merge2SortedList {
         return one;
     }
 
-    public LinkedNode getLinkedNode2()
+    public ListNode getLinkedNode2()
     {
-        LinkedNode one = new LinkedNode(1);
-        LinkedNode three = new LinkedNode(3);
-        LinkedNode four = new LinkedNode(4);
+        ListNode one = new ListNode(1);
+        ListNode three = new ListNode(3);
+        ListNode four = new ListNode(4);
 
         one.next=three;
         three.next=four;
@@ -71,11 +71,11 @@ public class Merge2SortedList {
 
 
         Merge2SortedList m = new Merge2SortedList();
-        LinkedNode result = m.mergeTwoLists(m.getLinkedNode1(), m.getLinkedNode2());
+        ListNode result = m.mergeTwoLists(m.getLinkedNode1(), m.getLinkedNode2());
 
         while (result!=null)
         {
-            System.out.println(result.data);
+            System.out.println(result.val);
             result=result.next;
         }
     }

@@ -6,12 +6,12 @@ public class PracticeBasics1 {
    // LinkedNode linkedNode = new LinkedNode();
 
 
-    public static LinkedNode populateLinkedList()
+    public static ListNode populateLinkedList()
     {
-        LinkedNode head = new LinkedNode(4);
-        LinkedNode five = new LinkedNode(5);
-        LinkedNode eight = new LinkedNode(8);
-        LinkedNode two = new LinkedNode(2);
+        ListNode head = new ListNode(4);
+        ListNode five = new ListNode(5);
+        ListNode eight = new ListNode(8);
+        ListNode two = new ListNode(2);
 
         head.next = five;
         five.next = two;
@@ -20,12 +20,12 @@ public class PracticeBasics1 {
         return head;
     }
 
-    public static LinkedNode populateWithPrevLinkedList()
+    public static ListNode populateWithPrevLinkedList()
     {
-        LinkedNode head = new LinkedNode(4);
-        LinkedNode five = new LinkedNode(5);
-        LinkedNode eight = new LinkedNode(8);
-        LinkedNode two = new LinkedNode(2);
+        ListNode head = new ListNode(4);
+        ListNode five = new ListNode(5);
+        ListNode eight = new ListNode(8);
+        ListNode two = new ListNode(2);
 
         head.next = five;
         five.prev=head;
@@ -42,20 +42,20 @@ public class PracticeBasics1 {
         return length;
     }
 
-    public static void printAllvalues(LinkedNode head)
+    public static void printAllvalues(ListNode head)
     {
         System.out.println("+------------------------------+");
         while(head.next!=null)
         {
             head = head.next;
-            System.out.println("|  next node value is : "+head.data+"      |");
+            System.out.println("|  next node value is : "+head.val+"      |");
             length++;
         }
         System.out.println("+------------------------------+");
         while(head.prev!=null)
         {
             head=head.prev;
-            System.out.println("|  prev node value is : "+head.data+"      |");
+            System.out.println("|  prev node value is : "+head.val+"      |");
         }
         System.out.println("+------------------------------+");
     }
@@ -65,7 +65,7 @@ public class PracticeBasics1 {
     public static void main(String[] args)
     {
 
-        LinkedNode list = populateWithPrevLinkedList();
+        ListNode list = populateWithPrevLinkedList();
         printAllvalues(list);
 
         PracticeBasics1 p = new PracticeBasics1();
